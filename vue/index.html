@@ -1,0 +1,20 @@
+doctype html
+html(lang="en")
+  head
+    title La Bibliotheque DEVOPS
+//affichage base 
+  body
+    h1 Liste des tâches
+    each book in books
+      div
+        p ISBN : #{book.ISBN}
+        p titre : #{book.titre}
+        p auteur : #{book.auteur}
+        p date d'achat : #{book.dateachat}
+        p etat : #{book.etat}
+        p thematique : #{book.thematique}
+        p pret :
+        div
+          each pre in book.pret
+            p Date du pret : #{pre.datepret}
+            p Emprunteur : #{pre.emprunteur}
