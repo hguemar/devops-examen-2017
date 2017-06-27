@@ -1,0 +1,43 @@
+2017-06-27T20:27:06.193+0200 I CONTROL  [initandlisten] MongoDB starting : pid=8140 port=27017 dbpath=G:\DevOps\Cours_NoSQL\devops-examen-2017\data_bastien\db 64-bit host=PC-Bastien
+2017-06-27T20:27:06.194+0200 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2017-06-27T20:27:06.194+0200 I CONTROL  [initandlisten] db version v3.4.5
+2017-06-27T20:27:06.194+0200 I CONTROL  [initandlisten] git version: 520b8f3092c48d934f0cd78ab5f40fe594f96863
+2017-06-27T20:27:06.194+0200 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1u-fips  22 Sep 2016
+2017-06-27T20:27:06.194+0200 I CONTROL  [initandlisten] allocator: tcmalloc
+2017-06-27T20:27:06.195+0200 I CONTROL  [initandlisten] modules: none
+2017-06-27T20:27:06.195+0200 I CONTROL  [initandlisten] build environment:
+2017-06-27T20:27:06.195+0200 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2017-06-27T20:27:06.195+0200 I CONTROL  [initandlisten]     distarch: x86_64
+2017-06-27T20:27:06.195+0200 I CONTROL  [initandlisten]     target_arch: x86_64
+2017-06-27T20:27:06.195+0200 I CONTROL  [initandlisten] options: { storage: { dbPath: "G:\DevOps\Cours_NoSQL\devops-examen-2017\data_bastien\db" }, systemLog: { destination: "file", path: "G:\DevOps\Cours_NoSQL\devops-examen-2017\data_bastien\log.log" } }
+2017-06-27T20:27:06.197+0200 I -        [initandlisten] Detected data files in G:\DevOps\Cours_NoSQL\devops-examen-2017\data_bastien\db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2017-06-27T20:27:06.198+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=2550M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+2017-06-27T20:27:06.669+0200 I CONTROL  [initandlisten] 
+2017-06-27T20:27:06.669+0200 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2017-06-27T20:27:06.669+0200 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2017-06-27T20:27:06.669+0200 I CONTROL  [initandlisten] 
+2017-06-27T20:27:06.669+0200 I CONTROL  [initandlisten] Hotfix KB2731284 or later update is not installed, will zero-out data files.
+2017-06-27T20:27:06.669+0200 I CONTROL  [initandlisten] 
+2017-06-27T20:27:07.000+0200 W FTDC     [initandlisten] Failed to initialize Performance Counters for FTDC: WindowsPdhError: PdhExpandCounterPathW failed with 'L’objet spécifié n’a pas été trouvé sur l’ordinateur.' for counter '\Memory\Available Bytes'
+2017-06-27T20:27:07.000+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'G:/DevOps/Cours_NoSQL/devops-examen-2017/data_bastien/db/diagnostic.data'
+2017-06-27T20:27:07.001+0200 I NETWORK  [thread1] waiting for connections on port 27017
+2017-06-27T20:27:32.732+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:50205 #1 (1 connection now open)
+2017-06-27T20:27:32.743+0200 I NETWORK  [conn1] received client metadata from 127.0.0.1:50205 conn1: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.4.5" }, os: { type: "Windows", name: "Microsoft Windows 7", architecture: "x86_64", version: "6.1 SP1 (build 7601)" } }
+2017-06-27T20:32:32.872+0200 I -        [conn1] end connection 127.0.0.1:50205 (1 connection now open)
+2017-06-27T20:32:58.649+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:50213 #2 (1 connection now open)
+2017-06-27T20:32:58.650+0200 I NETWORK  [conn2] received client metadata from 127.0.0.1:50213 conn2: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.4.5" }, os: { type: "Windows", name: "Microsoft Windows 7", architecture: "x86_64", version: "6.1 SP1 (build 7601)" } }
+2017-06-27T20:42:33.568+0200 I -        [conn2] end connection 127.0.0.1:50213 (1 connection now open)
+2017-06-27T20:42:36.784+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:50230 #3 (1 connection now open)
+2017-06-27T20:42:36.784+0200 I NETWORK  [conn3] received client metadata from 127.0.0.1:50230 conn3: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.4.5" }, os: { type: "Windows", name: "Microsoft Windows 7", architecture: "x86_64", version: "6.1 SP1 (build 7601)" } }
+2017-06-27T20:48:55.332+0200 I -        [conn3] end connection 127.0.0.1:50230 (1 connection now open)
+2017-06-27T20:49:06.175+0200 I CONTROL  [thread2] Ctrl-C signal
+2017-06-27T20:49:06.175+0200 I CONTROL  [consoleTerminate] got CTRL_C_EVENT, will terminate after current cmd ends
+2017-06-27T20:49:06.175+0200 I NETWORK  [consoleTerminate] shutdown: going to close listening sockets...
+2017-06-27T20:49:06.175+0200 I NETWORK  [consoleTerminate] closing listening socket: 456
+2017-06-27T20:49:06.175+0200 I NETWORK  [consoleTerminate] shutdown: going to flush diaglog...
+2017-06-27T20:49:06.175+0200 I FTDC     [consoleTerminate] Shutting down full-time diagnostic data capture
+2017-06-27T20:49:06.180+0200 I STORAGE  [consoleTerminate] WiredTigerKVEngine shutting down
+2017-06-27T20:49:06.291+0200 I STORAGE  [consoleTerminate] shutdown: removing fs lock...
+2017-06-27T20:49:06.292+0200 I CONTROL  [consoleTerminate] now exiting
+2017-06-27T20:49:06.292+0200 I CONTROL  [consoleTerminate] shutting down with code:12
+2017-06-27T20:49:06.292+0200
