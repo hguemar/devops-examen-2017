@@ -5,16 +5,22 @@ html(lang="en")
 
   body
     h1 Liste des livres
+
     each book in books
       ul(class="books")
+        li
+          h2 Titre : #{book.titre}
+        li
+          h3 Auteur : #{book.auteur}
         li ISBN : #{book.ISBN}
-        li Titre : #{book.titre}
-        li Auteur : #{book.auteur}
         li Date d'achat : #{book.dateachat}
         li Etat : #{book.etat}
-        li Thematique : #{book.thematiques}
-        li Pret :
-          each pret in book.prets
+        li Thematique(s) : #{book.thematiques}
+        li Pret(s) :
+          - var  n = 0;
+          while n < book.prets.length
             ul(class="prets")
-              li Date du pret : #{pret.datepret}
-              li Emprunteur : #{pret.emprunteur}
+              li= '#'+(n+1)
+              li Date du pret : #{book.prets[n].datepret}
+              li Emprunteur : #{book.prets[n].emprunteur}
+              - n++
