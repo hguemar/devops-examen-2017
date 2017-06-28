@@ -7,22 +7,30 @@ var cons = require('consolidate');
 var bodyParser = require('body-parser');
 
 
-bibliotèques.engine('html', cons.pug);
-bibliotèques.set('vue engine', 'html');
-bibliotèques.set('vue',  __dirname +  '/vue');
-bibliotèques.use(bodyParser());
+app.engine('html', cons.pug);
+app.set('vue engine', 'html');
+app.set('vue',  __dirname +  '/vue');
+app.use(bodyParser());
 
 
-
-bibliotèques.get('/books', function(req, res) {
-  bibliotèques.db.collection('livres').find({}).toArray(function(err, books) {
+// Fonction d'affichage des livres de la bibliothèque
+app.get('/books', function(req, res) {
+  app.Bibliotheque.collection('livres').find({}).toArray(function(err, books) {
     res.render("index",  {'books' : books});
   });
 });
 
+// Fonction d'insertion dans la bibliothèque
+app.post('/books/new', function(req, res, next) {
+    var theme = req.body.theme.split(",");
+    var newBook = {ISBN: req.body.ISBN, titre: req.body.titre, auteur: req.body.auteur, date d'achat: new Date(), etat:req.body.etat, theme:theme}
+      app.Bibliotheque.collection('book').save(newBook)
+    res.redirect('/books')
+});
+
 
 MongoClient.connect('mongodb://localhost:27017/Bibliotheque', function(err, db) {
-  bibliotèques.db = db;
-  bibliotèques.listen(8000);
+  app.Bibliotheque = Blibliotheque;
+  app.listen(8000);
   console.log("Express server started on 8000");
 });
