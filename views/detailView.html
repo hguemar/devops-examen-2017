@@ -1,10 +1,17 @@
 doctype html
 html
-    head
-        title Book details
-        meta charset="UTF-8"
-        meta name="viewport" content="width=device-width, initial-scale=1.0"
-    
-    body
-        div TODO write content
+  head
+    title Book details
+    meta charset="UTF-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
 
+  body
+
+    div(class='bookDetail')
+    div title : #{val.title}
+    div author : #{val.author}
+    div purchase_date : #{val.purchase_date}
+    div state : #{val.state}
+    div theme : #{val.theme}
+
+    a(href="/books/"+_id+"edit) Lend book
