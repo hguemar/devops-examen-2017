@@ -15,8 +15,9 @@ html(lang="fr")
           div purchase_date : #{val.purchase_date}
           div state : #{val.state}
           div theme : #{val.theme}
+          a(href="/books/delete/"+val._id) Delete
     
-    form(method='POST' action='books/add')
+    form(method='POST' action='books/new')
       div 
         label(for='isbn' class='addFomLabel') ISBN :
         input#input_isbn.form-control(type='text', placeholder='ISBN' name='isbn')
