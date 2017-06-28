@@ -2,6 +2,7 @@ var express = require('express');
 var session = require('express-session');
 var cons = require('consolidate');
 var bodyParser = require('body-parser');
+var mongodb = require('mongodb');
 var app = express();
 var MongoClient = require('mongodb').MongoClient;
 var Server = require('mongodb').Server;
@@ -17,14 +18,18 @@ app.get('/', function(req, res) {
 
 app.get('/books', function(req, res) {
   var result = '';
-
-  if (typeof session.resultNew !== undefined ){
+  console.log(session);
+  if (typeof session.resultNew != undefined ){
     result = session.resultNew;
     session.resultNew = undefined;
   }
+  if (typeof session.resultDelete != undefined ) {
+    result = session.resultDelete;
+    session.resultDelete = undefined;
+  }
 
   app.db.collection('livres').find({}).toArray(function(err, books) {
-    res.render("books",  {'books' : books, 'resultNew' : result});
+    res.render("books",  {'books' : books, 'result' : result});
   });
 });
 
@@ -46,6 +51,14 @@ app.post('/books/new', function(req, res) {
     app.db.collection('livres').insert({'ISBN':isbn, 'titre':titre, 'auteur':auteur, 'dateachat':dateachat, 'etat': etat,'thematiques':thematiques, 'prets':''})
     res.redirect('/books');
   }
+});
+
+app.post('/books/delete/:id', function(req, res) {
+  var id = new mongodb.ObjectId(req.params.id);
+
+  app.db.collection('livres').remove({'_id': id});
+  session.resultDelete = 'Le livre a été supprimé';
+  res.redirect('/books');
 });
 
 MongoClient.connect('mongodb://localhost:27017/bibliotheque', function(err, db) {

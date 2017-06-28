@@ -2,9 +2,10 @@ doctype html
 html(lang="en")
   head
     title Liste des livres
-
-
   body
+
+
+    h2 #{result}
 
     div(id='addBook')
       h1 Ajouter un livre
@@ -30,7 +31,7 @@ html(lang="en")
             td
               label(for='dateachat') Date d'achat * :
             td
-              input(type='text', name='dateachat', placeholder='Date')
+              input(type='text', name='dateachat', placeholder='Date', id='datepicker')
           tr
             td
               label(for='etat') Etat * :
@@ -48,7 +49,6 @@ html(lang="en")
             td(colspan="2")
               button(type='submit') Ajouter
 
-    h2 #{resultNew}
     br
 
     h1 Liste des livres
@@ -71,3 +71,6 @@ html(lang="en")
               li Date du pret : #{book.prets[n].datepret}
               li Emprunteur : #{book.prets[n].emprunteur}
               - n++
+        form(method='POST', action="/books/delete/"+book._id)
+          p
+            input(type="submit", value="Supprimer")
