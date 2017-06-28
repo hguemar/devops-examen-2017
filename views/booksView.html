@@ -10,6 +10,7 @@ html(lang="fr")
     div
       each val in books_array
         div(class='book')
+          a(href="/books/"+val._id) Edit
           div title : #{val.title}
           div author : #{val.author}
           div purchase_date : #{val.purchase_date}

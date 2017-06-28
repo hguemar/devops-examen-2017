@@ -70,6 +70,15 @@ app.get('/books/delete/:id', function (req, res) {
     res.redirect('/books');
 });
 
+app.get('/books/:id', function (req, res) {
+    app.db.collection('book').find({ _id: new Server.ObjectId(req.params.id) }).toArray(function (err, bookDetails) {
+        res.render("detailView", {
+            'book_details': bookDetails
+        });
+        console.log(bookDetails);
+    });
+});
+
 app.get('*', function (req, res) {
     res.send("Page not found", 404);
 });
