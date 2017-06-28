@@ -1,0 +1,25 @@
+doctype html
+html(lang="fr")
+  head
+    title Liste des taches
+  body
+    h1 Hello #{name}
+
+    ul
+      each val in books_array
+        li 
+          span name : #{val.title}
+    
+    form(method='POST' action='tasks/add')
+      label(for='name') Name :
+      input#input_name.form-control(type='text', placeholder='name' name='name')
+      
+      label(for='date') date :
+      input#input_date.form-control(type='text', placeholder='aaaa-mm-jj' name='date')
+
+      label(for='label') label :
+      input#input_label.form-control(type='text', placeholder='label' name='label')
+
+      
+
+      button(type='submit') Ajouter
