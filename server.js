@@ -97,7 +97,7 @@ app.post('/books/:id/edit', function (req, res) {
     }, {
         $set: {
             borrow: {
-                borrower: req.body.borrower,
+                borrower: req.body,
                 date: new Date()
             }
         }
