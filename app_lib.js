@@ -19,6 +19,16 @@ app.get('/books', function(req, res) {
 	});
 });
 
+app.get('/books/new', function(req, res) {
+	res.render("new");
+});
+
+app.post('/books/processNew', function(req, res) {
+	var newBook = { date: req.body.date, title: req.body.title, author: req.body.author,ISBN: req.body.isbn, state: req.body.state, theme: req.body.theme};
+	app.db.collection('books').save(newBook);
+	res.redirect('/books');
+});
+
 MongoClient.connect('mongodb://localhost:27017/library', function(err, db) {
 	app.db = db;
 	app.listen(8080);

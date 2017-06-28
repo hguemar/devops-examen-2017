@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+	head
+		title Ajouter un livre
+	body
+		// register form
+		form(method='POST' action='/books/processNew')
+				label(for='title') Titre:
+				input#titre.form-control(type='text' name='titre')
+				br
+				br
+				label(for='ISBN') ISBN:
+				input#ISBN.form-control(type='text', placeholder='A 13 chiffres' name='ISBN')
+				br
+				br
+				label(for='author') Auteur:
+				input#author.form-control(type='text', placeholder='' name='author')
+				br
+				br
+				label(for='title') Titre:
+				input#titre.form-control(type='text', placeholder='' name='titre')
+				br
+				br
+				label(for='state') Etat:
+				input#state.form-control(type='text', placeholder='' name='state')
+				br
+				br
+				label(for='theme') Thematique:
+				input#theme.form-control(type='text', placeholder='' name='theme')
+				br
+				br
+				label(for='date') Date:
+				input#date.form-control(type='text', placeholder='' name='date')
+				br
+				br
+				button.btn.btn-primary(type='submit') Ajouter
