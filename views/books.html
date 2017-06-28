@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+	head
+		title Liste des livres
+
+	body
+		h1 Liste des livres
+		each book in books
+			ul(class="books")
+			li ISBN : #{book.ISBN}
+			li Titre : #{book.title}
+			li Auteur : #{book.author}
+			li Date d'achat : #{book.date}
+			li Etat : #{book.state}
+			li Thematique : #{book.theme}
+			li Date du pret : #{book.loan.date}
+			li Emprunteur : #{book.loan.name}

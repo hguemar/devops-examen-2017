@@ -1,0 +1,16 @@
+{
+	"name": "Bibliotheque",
+	"version": "0.0.1",
+	"description": "Gestionnaire de Bibliotheque",
+	"main": "app_lib.js",
+	"dependencies": {
+		"consolidate": "*",
+		"express": "*",
+		"pug": "*",
+		"body-parser": "*",
+		"mongodb": "*"
+
+	},
+	"author": "Pheng Dylan, Frossard Arnaud, Nachury Mathieu",
+	"license": "BSD"
+}
