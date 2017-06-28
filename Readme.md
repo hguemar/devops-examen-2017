@@ -15,5 +15,5 @@ The application is build with the JavaScript framework express & the document or
 - Arnaud Frossard
 
 ## Setup
-- 
+- Restore database : run 'mongorestore "db"' (pointing on the db directory at project root) 
 
