@@ -20,22 +20,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/books', function (req, res) {
-    // app.db.collection('task').findOne({}, function (err, doc) {
-    //     res.render("index", {
-    //         "task_array":doc
-    //         //"name":doc.name
-    //     });
-    //     //console.log(doc);
-    // });
-
-
     render(res);
-
-    // var test = app.db.collection('task').find(query);
-    // console.log(test);
-    // var oTask = new Task;
-    // oTask.show();
-
 });
 
 function render(res) {
@@ -49,7 +34,6 @@ function render(res) {
             "books_array": book
         });
         console.log(book[0].title);
-
 
     });
 
