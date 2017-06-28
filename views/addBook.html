@@ -1,0 +1,8 @@
+form(action='/books/new', method='POST')
+  h1 Ajouter un livre
+  input(type='text', name='ISBN', placeholder='ISBN')
+  input(type='text', name='titre', placeholder='titre')
+  input(type='text', name='auteur', placeholder='Auteur')
+  input(type='text', name='dateachat', placeholder='Date d\'achat', id='datepicker')
+  input(type='text', name='thematiques', placeholder='Thematiques')
+  button(type='submit') Ajouter

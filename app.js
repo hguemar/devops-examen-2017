@@ -16,9 +16,36 @@ app.get('/', function(req, res) {
 });
 
 app.get('/books', function(req, res) {
+  var result = '';
+
+  if (typeof session.resultNew !== undefined ){
+    result = session.resultNew;
+    session.resultNew = undefined;
+  }
+
   app.db.collection('livres').find({}).toArray(function(err, books) {
-    res.render("books",  {'books' : books});
+    res.render("books",  {'books' : books, 'resultNew' : result});
   });
+});
+
+app.post('/books/new', function(req, res) {
+  console.log(req.body);
+  var isbn = req.body.isbn.trim() === undefined ? '' : req.body.isbn.trim() ;
+  var titre = req.body.titre.trim();
+  var auteur = req.body.auteur.trim();
+  var dateachat = req.body.dateachat.trim();
+  var etat = req.body.etat;
+  var thematiques = req.body.thematiques.split(",");
+
+  if(typeof titre === undefined || titre === '' || typeof auteur === undefined || auteur === ''
+    || typeof dateachat === undefined || dateachat === '' || typeof thematiques === undefined || thematiques === '' || typeof etat === undefined || etat === ''){
+    session.resultNew = 'Le livre n\'est pas valide';
+    res.redirect('/books');
+  } else {
+    session.resultNew = 'Le livre a été ajouté';
+    app.db.collection('livres').insert({'ISBN':isbn, 'titre':titre, 'auteur':auteur, 'dateachat':dateachat, 'etat': etat,'thematiques':thematiques, 'prets':''})
+    res.redirect('/books');
+  }
 });
 
 MongoClient.connect('mongodb://localhost:27017/bibliotheque', function(err, db) {

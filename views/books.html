@@ -3,7 +3,54 @@ html(lang="en")
   head
     title Liste des livres
 
+
   body
+
+    div(id='addBook')
+      h1 Ajouter un livre
+
+      form(action='/books/new', method='POST')
+        table
+          tr
+            td
+              label(for='isbn') ISBN :
+            td
+              input(type='text', name='isbn', placeholder='ISBN')
+          tr
+            td
+              label(for='titre') Titre * :
+            td
+              input(type='text', name='titre', placeholder='Titre')
+          tr
+            td
+              label(for='auteur') Auteur * :
+            td
+              input(type='text', name='auteur', placeholder='Auteur')
+          tr
+            td
+              label(for='dateachat') Date d'achat * :
+            td
+              input(type='text', name='dateachat', placeholder='Date')
+          tr
+            td
+              label(for='etat') Etat * :
+            td
+              select(name='etat')
+                option(value="neuf") Neuf
+                option(value="bon etat") Bon etat
+                option(value="abîmé") Abîmé
+          tr
+            td
+              label(for='thematiques') Thematiques * :
+            td
+              input(type='text', name='thematiques', placeholder='Thematiques')
+          tr
+            td(colspan="2")
+              button(type='submit') Ajouter
+
+    h2 #{resultNew}
+    br
+
     h1 Liste des livres
 
     each book in books
@@ -20,7 +67,7 @@ html(lang="en")
           - var  n = 0;
           while n < book.prets.length
             ul(class="prets")
-              li= '#'+(n+1)
+              div= '#'+(n+1)
               li Date du pret : #{book.prets[n].datepret}
               li Emprunteur : #{book.prets[n].emprunteur}
               - n++
