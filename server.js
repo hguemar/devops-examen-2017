@@ -3,7 +3,7 @@ var cons = require('consolidate');
 var app = express();
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
-var Server = require('mongodb').Server;
+var Server = require('mongodb');
 
 // var Task = require('./class/task.js');
 
@@ -39,7 +39,6 @@ function render(res) {
 
 }
 
-
 //
 // ADD BOOK
 //
@@ -57,6 +56,18 @@ app.post('/books/new', function (req, res) {
 
     console.log("redirection add ok");
     res.redirect('/tasks');
+});
+
+//
+// DELETE BOOK
+//
+app.get('/books/delete/:id', function (req, res) {
+
+    //app.db.collection('book').insert(req.body);
+    app.db.collection('book').remove({
+        _id: new Server.ObjectId(req.params.id)
+    });
+    res.redirect('/books');
 });
 
 app.get('*', function (req, res) {
