@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title Book details
+
+  body
+
+    div(class='bookDetails')
+      div title : #{book_details[0].title}
+      div author : #{book_details[0].author}
+      div purchase_date : #{book_details[0].purchase_date}
+      div state : #{book_details[0].state}
+      div theme : #{book_details[0].theme}
+
+    form(method='POST' action=book_details[0]._id+'/edit')
+      div Borrow the book
+      div 
+        label(for='borrower' class='addFomLabel') Borrower :
+        input#input_borrower.form-control(type='text', placeholder='borrow' name='borrower')
+      div
+        label(for='title' class='addFomLabel') Date :
+        span #{moment(Date.now()).format('MM/DD/YYYY')}
+
+      button(type='submit') Lend book

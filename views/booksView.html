@@ -1,0 +1,45 @@
+doctype html
+html(lang="fr")
+  head
+    style
+      include ../style.css
+    title Liste des taches
+  body
+    h1 Hello #{name}
+
+    div
+      each val in books_array
+        div(class='book')
+          a(href="/books/"+val._id) Show details
+          div title : #{val.title}
+          div author : #{val.author}
+          div purchase_date : #{val.purchase_date}
+          div state : #{val.state}
+          div theme : #{val.theme}
+          a(href="/books/delete/"+val._id) Delete
+    
+    form(method='POST' action='books/new')
+      div 
+        label(for='isbn' class='addFomLabel') ISBN :
+        input#input_isbn.form-control(type='text', placeholder='ISBN' name='isbn')
+      div
+        label(for='title' class='addFomLabel') Title :
+        input#input_name.form-control(type='text', placeholder='title' name='title')
+      div
+        label(for='author' class='addFomLabel') Author :
+        input#input_name.form-control(type='text', placeholder='author' name='author')
+      div
+        label(for='purchase' class='addFomLabel') Purchase date :
+        input#input_date.form-control(type='text', placeholder='aaaa-mm-jj' name='purchase')
+      div
+        label(for='state' class='addFomLabel') State :
+        select#input_date.form-control(type='text', placeholder='aaaa-mm-jj' name='state')
+          option(value='0') New
+          option(value='1') Good condition
+          option(value='2') Damaged
+      div
+        label(for='theme' class='addFomLabel') Theme :
+        input#input_label.form-control(type='text', placeholder='theme' name='theme')
+      
+
+      button(type='submit') Add
