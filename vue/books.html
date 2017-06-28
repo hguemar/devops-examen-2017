@@ -5,3 +5,21 @@ title Liste des livres
 body
     h1 Caractéristiques du livre
 	each book in books
+	 p ISBN : #{book.ISBN}
+        p titre : #{book.titre}
+        p auteur : #{book.auteur}
+        p date d'achat : #{book.dateachat}
+        p etat : #{book.etat}
+		p thematique : #{book.thematique}
+//formulaire de suppression d'un livre
+
+    h1 Supprimer un livre de la bibliothèque:
+
+    form(action='/books/delete', method='POST')
+        h1 ISBN : 
+            input(type="int", name="ISBN")
+        h2 Titre :
+            input(type="text", name="titre")
+        h2 Auteur : 
+            input(type="text", name="autheur")
+input(type="submit", value="delete")
