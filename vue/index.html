@@ -1,10 +1,10 @@
 doctype html
 html(lang="en")
   head
-    title La Bibliotheque DEVOPS
+    title La Bibliotheque DEVOPS 
 //affichage base 
   body
-    h1 Liste des tâches
+    h1 La bibliotèque :
     each book in books
       div
         p ISBN : #{book.ISBN}
@@ -18,3 +18,35 @@ html(lang="en")
           each pre in book.pret
             p Date du pret : #{pre.datepret}
             p Emprunteur : #{pre.emprunteur}
+
+
+//formulaire 
+
+    h1 Ajouter un livre :
+
+    form(action='/books/new', method='POST')
+        h1 ISBN : 
+            input(type="int", name="ISBN")
+        h2 Titre :
+            input(type="text", name="titre")
+        h2 Auteur : 
+            input(type="text", name="autheur")
+	input(type="submit", value="add")
+
+	h1 Etat :
+            input(type="radio", name="etat", value="Neuf")
+             Neuf
+            input(type="radio", name="etat", value="Bon état")
+             Bon état
+            input(type="radio", name="etat", value="Abîmé")
+            | Abmé
+        h1 Thème (séparées par une virgule) :
+            p
+            input(type="text", name="theme")
+        input(type="submit", value="Ajouter")
+
+     
+
+
+
+
