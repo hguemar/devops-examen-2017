@@ -6,11 +6,9 @@ html(lang="fr")
     h1 Hello #{name}
 
     ul
-      each val in task_array
+      each val in books_array
         li 
-          span name : #{val.name}
-          span date : #{val.date}
-          span label : #{val.label}
+          span name : #{val.title}
     
     form(method='POST' action='tasks/add')
       label(for='name') Name :

@@ -16,10 +16,10 @@ app.get('/', function (req, res) {
     // res.render("index", {
     //     "name": "pug"
     // });
-    res.redirect('/tasks');
+    res.redirect('/books');
 });
 
-app.get('/tasks', function (req, res) {
+app.get('/books', function (req, res) {
     // app.db.collection('task').findOne({}, function (err, doc) {
     //     res.render("index", {
     //         "task_array":doc
@@ -43,12 +43,12 @@ function render(res) {
         "name": '2em tache'
     };
 
-    app.db.collection('task').find().toArray(function (err, task) {
-        //console.log(task);
-        res.render("tasks", {
-            "task_array": task
+    app.db.collection('book').find().toArray(function (err, book) {
+        console.log(book);
+        res.render("booksView", {
+            "books_array": book
         });
-        console.log(task[0].name);
+        console.log(book[0].title);
 
 
     });
@@ -79,7 +79,7 @@ app.get('*', function (req, res) {
     res.send("Page not found", 404);
 });
 
-MongoClient.connect('mongodb://localhost:27017/tp_tasks', function (err, db) {
+MongoClient.connect('mongodb://localhost:27017/booksDb', function (err, db) {
     app.db = db;
     app.listen(8000);
     console.log("Express server started on 8000");
