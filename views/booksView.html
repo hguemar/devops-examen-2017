@@ -1,25 +1,43 @@
 doctype html
 html(lang="fr")
   head
+    style
+      include ../style.css
     title Liste des taches
   body
     h1 Hello #{name}
 
-    ul
+    div
       each val in books_array
-        li 
-          span name : #{val.title}
+        div(class='book')
+          div title : #{val.title}
+          div author : #{val.author}
+          div purchase_date : #{val.purchase_date}
+          div state : #{val.state}
+          div theme : #{val.theme}
     
-    form(method='POST' action='tasks/add')
-      label(for='name') Name :
-      input#input_name.form-control(type='text', placeholder='name' name='name')
+    form(method='POST' action='books/add')
+      div 
+        label(for='isbn' class='addFomLabel') ISBN :
+        input#input_isbn.form-control(type='text', placeholder='ISBN' name='isbn')
+      div
+        label(for='title' class='addFomLabel') Title :
+        input#input_name.form-control(type='text', placeholder='title' name='title')
+      div
+        label(for='author' class='addFomLabel') Author :
+        input#input_name.form-control(type='text', placeholder='author' name='author')
+      div
+        label(for='purchase' class='addFomLabel') Purchase date :
+        input#input_date.form-control(type='text', placeholder='aaaa-mm-jj' name='purchase')
+      div
+        label(for='state' class='addFomLabel') State :
+        select#input_date.form-control(type='text', placeholder='aaaa-mm-jj' name='state')
+          option(value='0') New
+          option(value='1') Good condition
+          option(value='2') Damaged
+      div
+        label(for='theme' class='addFomLabel') Theme :
+        input#input_label.form-control(type='text', placeholder='theme' name='theme')
       
-      label(for='date') date :
-      input#input_date.form-control(type='text', placeholder='aaaa-mm-jj' name='date')
 
-      label(for='label') label :
-      input#input_label.form-control(type='text', placeholder='label' name='label')
-
-      
-
-      button(type='submit') Ajouter
+      button(type='submit') Add
