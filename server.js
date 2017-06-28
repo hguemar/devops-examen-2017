@@ -4,6 +4,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 var Server = require('mongodb');
+app.locals.moment = require('moment');
 
 // var Task = require('./class/task.js');
 
@@ -19,6 +20,9 @@ app.get('/', function (req, res) {
     res.redirect('/books');
 });
 
+//
+// HOME
+//
 app.get('/books', function (req, res) {
     render(res);
 });
@@ -70,13 +74,35 @@ app.get('/books/delete/:id', function (req, res) {
     res.redirect('/books');
 });
 
+//
+// SHOW BOOK DETAIL
+//
 app.get('/books/:id', function (req, res) {
-    app.db.collection('book').find({ _id: new Server.ObjectId(req.params.id) }).toArray(function (err, bookDetails) {
+    app.db.collection('book').find({
+        _id: new Server.ObjectId(req.params.id)
+    }).toArray(function (err, bookDetails) {
         res.render("detailView", {
             'book_details': bookDetails
         });
         console.log(bookDetails);
     });
+});
+
+//
+// BORROW BOOK 
+//
+app.post('/books/:id/edit', function (req, res) {
+    app.db.collection('book').update({
+        _id: new Server.ObjectId(req.params.id)
+    }, {
+        $set: {
+            borrow: {
+                borrower: req.body.borrower,
+                date: new Date()
+            }
+        }
+    })
+    res.redirect('/books/' + req.params.id)
 });
 
 app.get('*', function (req, res) {
