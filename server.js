@@ -3,7 +3,7 @@ var cons = require('consolidate');
 var app = express();
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
-var Server = require('mongodb');
+var Server = require('mongodb').Server;
 
 // var Task = require('./class/task.js');
 
@@ -11,14 +11,7 @@ app.engine('html', cons.pug);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views')
 
-app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({
-    extended: true
-})); // for parsing application/x-www-form-urlencoded
 
-//
-// HOME
-//
 app.get('/', function (req, res) {
     // res.render("index", {
     //     "name": "pug"
@@ -26,15 +19,6 @@ app.get('/', function (req, res) {
     res.redirect('/books');
 });
 
-// 404
-app.get('*', function (req, res) {
-    res.send("Page not found", 404);
-});
-
-
-//
-// BOOKS LIST
-//
 app.get('/books', function (req, res) {
     render(res);
 });
@@ -72,19 +56,11 @@ app.post('/books/new', function (req, res) {
     console.log(req.body);
 
     console.log("redirection add ok");
-    res.redirect('/books');
+    res.redirect('/tasks');
 });
 
-//
-// DELETE BOOK
-//
-app.get('/books/delete/:id', function (req, res) {
-
-    //app.db.collection('book').insert(req.body);
-    app.db.collection('book').remove({
-        _id: new Server.ObjectId(req.params.id)
-    });
-    res.redirect('/books');
+app.get('*', function (req, res) {
+    res.send("Page not found", 404);
 });
 
 MongoClient.connect('mongodb://localhost:27017/booksDb', function (err, db) {
