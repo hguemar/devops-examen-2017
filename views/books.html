@@ -1,0 +1,19 @@
+doctype html
+html(lang="fr")
+	head
+	title livres
+body
+	h1 Les livres
+	each livre in livres
+		ul
+			li Titre : #{livre.titre}
+			li ISBN : #{livre.ISBN}
+			li Auteur : #{livre.Auteur}
+			li Date de vente : #{livre.dateAchat}
+			li état : #{livre.etat}
+			li thématique :
+				each theme in livre.thematique
+					ul
+						li #{theme}
+			
+	

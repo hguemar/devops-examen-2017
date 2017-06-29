@@ -12,6 +12,6 @@ titre:"A song of ice and fire",
 auteur:"R. R. Martin",
 dateAchat:new Date(Date.now()),
 etat:"abimé",
-thematique:{0:"fantastique",1:"médiévale"}
+thematique:{"fantastique","médiévale"}
 }
 }
