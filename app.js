@@ -20,6 +20,17 @@ app.get('/', function(req, res) {
 			'livres' : livre
 		});
 	});
+})
+.post('/books/new', function(req, res) {
+  	app.db.collection('livre').save({
+		ISBN: req.body.isbn, 
+		titre: req.body.titre, 
+		auteur: req.body.auteur, 
+		etat: req.body.etat,
+		purchase_date: new Date(req.body.dateAchat), 
+		thematique: req.body.thematique.split(",")
+	})
+	res.redirect('/books')
 });
 
 mongoClient.connect(urlDB, function (err, db) {
