@@ -1,0 +1,47 @@
+doctype html
+html(lang="fr")
+	head
+		title livres
+	body
+		h1 Ajout d'un livre
+		form(action='/books/new', method='POST')
+			table
+			tr
+				td
+					label(for='isbn') ISBN :
+					input(type='text', name='isbn')
+				td
+					label(for='titre') Titre :
+					input(type='text', name='titre')
+			tr
+				td
+					label(for='auteur') Auteur :
+					input(type='text', name='auteur')
+				td
+					label(for='dateAchat') Date d'achat :
+					input(type='text', name='dateAchat')
+			tr
+				td
+					label(for='etat') Etat :
+					select(name='etat')
+						option(value="neuf") neuf
+						option(value="bonEtat") bon état
+						option(value="abime") abimé
+				td
+					label(for='thematique') thematique :
+					input(type='text', name='thematique', placeholder='Thematiques')
+				tr
+					button(type='submit') Enregistrer
+
+		h1 Les livres
+		each livre in livres
+			ul
+				li Titre : #{livre.titre}
+				li ISBN : #{livre.ISBN}
+				li Auteur : #{livre.Auteur}
+				li Date de vente : #{livre.dateAchat}
+				li état : #{livre.etat}
+				li thématique :
+					each theme in livre.thematique
+						ul
+							li #{theme}
